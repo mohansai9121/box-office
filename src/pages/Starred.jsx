@@ -4,7 +4,7 @@ import React from 'react'
 const Starred = () => {
   return (
     <div>
-      <center>Starred page<br></br>
+      <center><h2>Starred page</h2><br></br>
       </center>
     </div>
   )
