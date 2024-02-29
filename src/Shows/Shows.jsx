@@ -7,7 +7,8 @@ const Shows = ({shows}) => {
         {shows.map((data)=>{
             return <ShowCard key={data.show.id} 
             image={data.show.image ? data.show.image.medium:'./noPhoto.jpg'}
-            name={data.show.name}/>
+            name={data.show.name}
+            summary={data.show.summary}/>
         })}
     </div>
   )
