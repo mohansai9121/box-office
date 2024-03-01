@@ -9,7 +9,7 @@ const Home = () => {
   const [apiData, setApiData] = useState(null)
   const [apiError, setApiError] = useState(null)
   const [searchOption, setSearchOption] = useState('shows')
-  console.log(searchOption)
+  //console.log(searchOption)
   const searchHandler = (e) =>{
     setSearchStr(e.target.value)
   }

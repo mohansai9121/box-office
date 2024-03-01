@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
         <center>
-            <Title/>
+            <Title title='Box Office App'/>
             <Navigation/>
         </center>
       <Outlet/>
