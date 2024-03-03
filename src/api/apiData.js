@@ -8,3 +8,4 @@ const apiData = async (searchFor)=>{
 
 export const searchForShows = (query)=> apiData(`/search/shows?q=${query}`)
 export const searchForPeople = (query) => apiData(`/search/people?q=${query}`)
+export const getShowById = (id) => apiData(`/shows/${id}`)
