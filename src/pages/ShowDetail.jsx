@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+//import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getShowById } from '../api/apiData'
+import { useQuery } from '@tanstack/react-query'
 
 const ShowDetail = () => {
-  const [data, setData] = useState(null)
+  /*const [data, setData] = useState(null)
   const [err, setErr] = useState(null)
     const {showid} = useParams()
     useEffect(()=>{
@@ -16,7 +17,12 @@ const ShowDetail = () => {
         }
       }
       fetchData()
-    },[showid])
+    },[showid])*/
+    const {showid} = useParams()
+    const {data, error:err} = useQuery({
+      queryKey:['Show',showid],
+      queryFn:()=>getShowById(showid)
+    })
     if(data){
       return <div><center>Showing the details of SHow:{data.name}</center></div>
     }
