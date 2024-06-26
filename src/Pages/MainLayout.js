@@ -8,10 +8,10 @@ const MainLayout = () => {
         <h1>The Box Office App</h1>
         <h3>Search for movies and actors...</h3>
         <ul>
-          <li>
+          <li style={{ listStyle: "none" }}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li style={{ listStyle: "none" }}>
             <Link to="/starred">Starred</Link>
           </li>
         </ul>

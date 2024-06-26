@@ -15,6 +15,7 @@ const ShowsGrid = ({ shows }) => {
               genres={data.show.genres}
               image={data.show.image}
               summary={data.show.summary}
+              id={data.show.id}
             />
           </div>
         );

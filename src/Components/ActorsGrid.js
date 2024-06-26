@@ -12,6 +12,9 @@ const ActorsGrid = ({ actors }) => {
             name={actor.person.name}
             image={actor.person.image}
             country={actor.person.country}
+            birthday={actor.person.birthday}
+            deathday={actor.person.deathday}
+            gender={actor.person.gender}
           />
         );
       })}

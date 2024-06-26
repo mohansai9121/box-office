@@ -33,11 +33,7 @@ const Home = () => {
       );
     }
     if (apiData.length === 0) {
-      return (
-        <div>
-          <h2>No Data Found...</h2>
-        </div>
-      );
+      return <div></div>;
     }
     if (apiData[0].show) {
       return <ShowsGrid shows={apiData} />;
