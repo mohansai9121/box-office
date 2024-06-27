@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import noPhoto from "./noPhoto.jpg";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import "./components.css";
 
@@ -43,9 +43,9 @@ const ShowCard = ({ name, language, genres, image, summary, id }) => {
       <p>Genres:{genres}</p>
       <p>Details:{detail}</p>
       <div>
-        <a href={`/show/${id}`} target="_blank" rel="noreferrer">
+        <Link href={`/show/${id}`} target="_blank" rel="noreferrer">
           Know more
-        </a>
+        </Link>
         <br />
         <FaStar onClick={starHandler} className={starred ? "gold" : "star"} />
       </div>
