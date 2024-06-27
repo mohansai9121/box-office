@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
 import Starred from "./Pages/Starred";
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <center>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Home />} />
@@ -17,7 +17,7 @@ function App() {
             </Route>
             <Route path="/show/:id" element={<Show />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </center>
     </div>
   );
