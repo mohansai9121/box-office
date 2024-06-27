@@ -12,7 +12,9 @@ const MainLayout = () => {
             <Link to="/">Home</Link>
           </li>
           <li style={{ listStyle: "none" }}>
-            <Link to="/starred">Starred</Link>
+            <Link to="/starred" target="_blank">
+              Starred
+            </Link>
           </li>
         </ul>
         <Outlet />

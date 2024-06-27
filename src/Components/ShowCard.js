@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import noPhoto from "./noPhoto.jpg";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import "./components.css";
 
@@ -10,7 +10,7 @@ const ShowCard = ({ name, language, genres, image, summary, id }) => {
   //const [starredShows, setStarredShows] = useState([]);
 
   const starHandler = () => {
-    setStarredShow(id);
+    setStarredShow(name);
     setStarred(true);
   };
 
@@ -21,8 +21,8 @@ const ShowCard = ({ name, language, genres, image, summary, id }) => {
     if (shows) {
       shows.push(starredShow);
     }
-    if (starredShow === "") {
-      shows = [];
+    if (!shows) {
+      shows = ["Mohan"];
     }
     localStorage.setItem("showId", JSON.stringify(shows));
   }, [starredShow]);
@@ -31,7 +31,7 @@ const ShowCard = ({ name, language, genres, image, summary, id }) => {
     ? summary.split(" ").slice(0, 10).join(" ").replace(/<.+?>/g)
     : "No summary details...";
   return (
-    <div>
+    <div className="showCard">
       <img
         src={image ? image.medium : noPhoto}
         alt={name}
@@ -43,8 +43,11 @@ const ShowCard = ({ name, language, genres, image, summary, id }) => {
       <p>Genres:{genres}</p>
       <p>Details:{detail}</p>
       <div>
-        <Link to={`/show/${id}`}>Know more</Link>
-        <FaStar onClick={starHandler} className={starred ? "gold" : ""} />
+        <a href={`/show/${id}`} target="_blank" rel="noreferrer">
+          Know more
+        </a>
+        <br />
+        <FaStar onClick={starHandler} className={starred ? "gold" : "star"} />
       </div>
     </div>
   );

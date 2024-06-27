@@ -1,3 +1,16 @@
 .gold {
   color: gold;
+  scale: 1.5;
+  margin: 5px;
+}
+.star {
+  color: white;
+  scale: 1.5;
+  margin: 5px;
+}
+.showCard {
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
 }

@@ -2,22 +2,28 @@ import React, { useState } from "react";
 import { searchForActors, searchForShows } from "../Components/fatchData";
 import ShowsGrid from "../Components/ShowsGrid";
 import ActorsGrid from "../Components/ActorsGrid";
+import { MutatingDots } from "react-loader-spinner";
+import "./pages.css";
 
 const Home = () => {
   const [searchString, setSearchString] = useState("");
   const [searchFor, setSearchFor] = useState("shows");
   const [apiData, setApiData] = useState([]);
   const [apiDataError, setApiDataError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       if (searchFor === "shows") {
         let data = await searchForShows(searchString);
         setApiData(data);
+        setLoading(false);
       } else {
         let data = await searchForActors(searchString);
         setApiData(data);
+        setLoading(false);
       }
     } catch (error) {
       setApiDataError(error.message);
@@ -25,6 +31,21 @@ const Home = () => {
   };
 
   const renderData = () => {
+    if (loading) {
+      return (
+        <MutatingDots
+          visible={true}
+          height="120"
+          width="120"
+          color="white"
+          secondaryColor="white"
+          radius="15"
+          ariaLabel="mutating-dots-loading"
+          wrapperStyle={{ margin: 150 }}
+          wrapperClass="loading"
+        />
+      );
+    }
     if (apiDataError) {
       return (
         <div>
@@ -33,7 +54,7 @@ const Home = () => {
       );
     }
     if (apiData.length === 0) {
-      return <div></div>;
+      return <div>No data Found</div>;
     }
     if (apiData[0].show) {
       return <ShowsGrid shows={apiData} />;

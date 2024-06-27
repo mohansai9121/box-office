@@ -3,7 +3,7 @@ import noPhoto from "./noPhoto.jpg";
 
 const ActorCard = ({ name, image, country, birthday, deathday, gender }) => {
   return (
-    <div>
+    <div className="showCard">
       <img
         src={image ? image.medium : noPhoto}
         alt={name}
