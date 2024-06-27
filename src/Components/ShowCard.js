@@ -43,7 +43,7 @@ const ShowCard = ({ name, language, genres, image, summary, id }) => {
       <p>Genres:{genres}</p>
       <p>Details:{detail}</p>
       <div>
-        <Link href={`/show/${id}`} target="_blank" rel="noreferrer">
+        <Link to={`/show/${id}`} target="_blank">
           Know more
         </Link>
         <br />
