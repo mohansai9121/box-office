@@ -1,6 +1,6 @@
 .gold {
   color: gold;
-  scale: 1.5;
+  scale: 1.8;
   margin: 5px;
 }
 .star {
@@ -13,4 +13,14 @@
   border-radius: 15px;
   padding: 10px;
   margin: 5px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+}
+.showCard:hover,
+.showCard:focus {
+  box-shadow: 0px 0px 12px white;
+  transition: 0.5s;
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import ShowCard from "./ShowCard";
+import "./components.css";
 
 const ShowsGrid = ({ shows }) => {
   console.log(shows);
   return (
-    <div>
+    <div className="grid">
       {shows.map((data) => {
         return (
           <div key={data.show.id}>

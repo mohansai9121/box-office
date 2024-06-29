@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import nophoto from "../Components/noPhoto.jpg";
 import { MutatingDots } from "react-loader-spinner";
+import "./pages.css";
+import "../Components/components.css";
 
 const Show = () => {
   const [data, setData] = useState("");
@@ -40,7 +42,10 @@ const Show = () => {
 
   return (
     <div>
-      <Link to="/">Home</Link>
+      <Link to="/" className="link">
+        <button className="search">Home</button>
+      </Link>
+      <br />
       {loading ? (
         <MutatingDots
           visible={true}
@@ -58,13 +63,83 @@ const Show = () => {
           {" "}
           <center>
             <img
-              src={data.image ? data.image.medium : nophoto}
+              src={data.image ? data.image.original : nophoto}
               alt={data.name}
+              height={700}
+              width={430}
+              style={{ overflow: "scroll" }}
             />
-            <h1>{data.name}</h1>
-            <h3>Language:{data.language}</h3>
-            <p>Genres:{data.genres ? data.genres : "--"}</p>
+            <h1 style={{ fontSize: "60px" }}>{data.name}</h1>
+            {data.language ? (
+              <h3>
+                Language:
+                <span style={{ fontWeight: "900" }}>{data.language}</span>
+              </h3>
+            ) : (
+              ""
+            )}
+            {data.genres ? (
+              <h3>
+                Genres:
+                <span style={{ fontWeight: "900" }}>
+                  {data.genres.join(", ")}
+                </span>
+              </h3>
+            ) : (
+              ""
+            )}
             <p>{summary}</p>
+            {data.status ? (
+              <h3>
+                Status:
+                <span style={{ fontWeight: "900" }}>{" " + data.status}</span>
+              </h3>
+            ) : (
+              ""
+            )}
+            {data._embedded.seasons ? (
+              <h3>
+                Seasons:
+                <span style={{ fontWeight: "900" }}>
+                  {" "}
+                  {data._embedded.seasons.length}
+                </span>
+              </h3>
+            ) : (
+              ""
+            )}
+            {data._embedded.cast ? (
+              <div className="grid">
+                {data._embedded.cast.map((actor, idx) => {
+                  return (
+                    <div key={idx} className="showCard">
+                      {actor.person.image ? (
+                        <img
+                          src={actor.person.image.medium}
+                          alt="actor.person.name"
+                        />
+                      ) : (
+                        nophoto
+                      )}
+                      <h2>{actor.person.name}</h2>
+                      {actor.person.country ? (
+                        <div>
+                          <h4>
+                            <span style={{ color: "#F9DB60" }}>
+                              {actor.person.country.name}
+                            </span>
+                          </h4>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
           </center>
         </div>
       )}

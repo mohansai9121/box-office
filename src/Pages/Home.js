@@ -9,11 +9,13 @@ const Home = () => {
   const [searchString, setSearchString] = useState("");
   const [searchFor, setSearchFor] = useState("shows");
   const [apiData, setApiData] = useState([]);
+  const [searched, setSearched] = useState(false);
   const [apiDataError, setApiDataError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setSearched(true);
     setLoading(true);
     try {
       if (searchFor === "shows") {
@@ -53,8 +55,13 @@ const Home = () => {
         </div>
       );
     }
+    if (!searched) {
+      return <div></div>;
+    }
     if (apiData.length === 0) {
-      return <div>No data Found</div>;
+      return (
+        <div style={{ fontSize: "30px", fontWeight: "800" }}>No data Found</div>
+      );
     }
     if (apiData[0].show) {
       return <ShowsGrid shows={apiData} />;
@@ -67,35 +74,41 @@ const Home = () => {
   return (
     <div>
       <center>
-        <form onSubmit={submitHandler}>
-          <input
-            type="text"
-            value={searchString}
-            onChange={(e) => setSearchString(e.target.value)}
-          />
-          <br />
-          <label>
-            actors
+        <div>
+          <form onSubmit={submitHandler}>
             <input
-              type="radio"
-              value="actors"
-              onChange={(e) => setSearchFor(e.target.value)}
-              checked={searchFor === "actors"}
+              type="text"
+              className="input"
+              value={searchString}
+              placeholder="Search here..."
+              onChange={(e) => setSearchString(e.target.value)}
             />
-          </label>
-          <label>
-            shows
-            <input
-              type="radio"
-              value="shows"
-              onChange={(e) => setSearchFor(e.target.value)}
-              checked={searchFor === "shows"}
-            />
-          </label>
-          <br />
-          <button type="submit">Search</button>
-        </form>
-        {renderData()}
+            <br />
+            <label className="radio">
+              actors
+              <input
+                type="radio"
+                value="actors"
+                onChange={(e) => setSearchFor(e.target.value)}
+                checked={searchFor === "actors"}
+              />
+            </label>
+            <label className="radio">
+              shows
+              <input
+                type="radio"
+                value="shows"
+                onChange={(e) => setSearchFor(e.target.value)}
+                checked={searchFor === "shows"}
+              />
+            </label>
+            <br />
+            <button type="submit" className="search">
+              Search
+            </button>
+          </form>
+        </div>
+        <div className="data">{renderData()}</div>
       </center>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import noPhoto from "./noPhoto.jpg";
+import "./components.css";
 
 const ActorCard = ({ name, image, country, birthday, deathday, gender }) => {
   return (
@@ -13,10 +14,37 @@ const ActorCard = ({ name, image, country, birthday, deathday, gender }) => {
       <h2>
         {name} {gender && <span style={{ fontSize: "15px" }}>({gender})</span>}{" "}
       </h2>
-      {country ? <p>Country:{country.name}</p> : ""}
-      {birthday ? <p>Birthday:{birthday}</p> : ""}
-      {deathday ? <p>Deathday:{deathday}</p> : ""}
-      {birthday && !deathday ? <p>Alive</p> : ""}
+      {country ? (
+        <p>
+          <span style={{ fontSize: "larger", textDecoration: "underline" }}>
+            Country
+          </span>
+          :{country.name}
+        </p>
+      ) : (
+        ""
+      )}
+      {birthday ? (
+        <p>
+          <span style={{ fontSize: "larger", textDecoration: "underline" }}>
+            Birthday
+          </span>
+          :{birthday}
+        </p>
+      ) : (
+        ""
+      )}
+      {deathday ? (
+        <p>
+          <span style={{ fontSize: "larger", textDecoration: "underline" }}>
+            Deathday
+          </span>
+          :{deathday}
+        </p>
+      ) : (
+        ""
+      )}
+      {birthday && !deathday ? <p style={{ color: "#7EFE0C" }}>Alive</p> : ""}
     </div>
   );
 };

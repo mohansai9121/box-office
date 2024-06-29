@@ -1,10 +1,11 @@
 import React from "react";
 import ActorCard from "./ActorCard";
+import "./components.css";
 
 const ActorsGrid = ({ actors }) => {
   console.log(actors);
   return (
-    <div>
+    <div className="grid">
       {actors.map((actor) => {
         return (
           <ActorCard

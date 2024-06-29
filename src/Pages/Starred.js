@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
+import "./pages.css";
+import "../Components/components.css";
 //import ShowCard from "../Components/ShowCard";
 
 const Starred = () => {
@@ -45,23 +47,28 @@ const Starred = () => {
   console.log(starredShows);
 
   return (
-    <div>
+    <div className="data">
       <center>
-        {starredShows ? (
-          starredShows.map((showName, index) => {
-            return (
-              <div key={index}>
-                <h3>ShowName:{showName}</h3>
-                <MdDelete
-                  style={{ color: "red" }}
-                  onClick={() => deleteHandler(index)}
-                />
-              </div>
-            );
-          })
+        <h2>Starred shows are:</h2>
+        {starredShows.length > 0 ? (
+          <div className="grid">
+            {starredShows.map((showName, index) => {
+              return (
+                <div key={index} className="showCard">
+                  <h3>{showName}</h3>
+                  <MdDelete
+                    style={{ color: "red" }}
+                    onClick={() => deleteHandler(index)}
+                    className="delete"
+                    title="Delete.."
+                  />
+                </div>
+              );
+            })}
+          </div>
         ) : (
           <div>
-            <h2>No Starred Shows</h2>
+            <h3 style={{ color: "#F03F31" }}>No Starred Shows</h3>
           </div>
         )}
       </center>
