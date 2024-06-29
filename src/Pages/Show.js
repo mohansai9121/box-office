@@ -97,49 +97,6 @@ const Show = () => {
             ) : (
               ""
             )}
-            {data._embedded.seasons ? (
-              <h3>
-                Seasons:
-                <span style={{ fontWeight: "900" }}>
-                  {" "}
-                  {data._embedded.seasons.length}
-                </span>
-              </h3>
-            ) : (
-              ""
-            )}
-            {data._embedded.cast ? (
-              <div className="grid">
-                {data._embedded.cast.map((actor, idx) => {
-                  return (
-                    <div key={idx} className="showCard">
-                      {actor.person.image ? (
-                        <img
-                          src={actor.person.image.medium}
-                          alt="actor.person.name"
-                        />
-                      ) : (
-                        nophoto
-                      )}
-                      <h2>{actor.person.name}</h2>
-                      {actor.person.country ? (
-                        <div>
-                          <h4>
-                            <span style={{ color: "#F9DB60" }}>
-                              {actor.person.country.name}
-                            </span>
-                          </h4>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              ""
-            )}
           </center>
         </div>
       )}
