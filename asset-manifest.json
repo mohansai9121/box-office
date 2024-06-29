@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/box-office/static/css/main.557651ca.css",
-    "main.js": "/box-office/static/js/main.56fed360.js",
+    "main.js": "/box-office/static/js/main.1950d964.js",
     "static/js/453.e5f0c896.chunk.js": "/box-office/static/js/453.e5f0c896.chunk.js",
     "static/media/noPhoto.jpg": "/box-office/static/media/noPhoto.b4c87e2abb257457e371.jpg",
     "static/media/box-office.webp": "/box-office/static/media/box-office.135779f817f85fd3e72d.webp",
     "index.html": "/box-office/index.html",
     "main.557651ca.css.map": "/box-office/static/css/main.557651ca.css.map",
-    "main.56fed360.js.map": "/box-office/static/js/main.56fed360.js.map",
+    "main.1950d964.js.map": "/box-office/static/js/main.1950d964.js.map",
     "453.e5f0c896.chunk.js.map": "/box-office/static/js/453.e5f0c896.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.557651ca.css",
-    "static/js/main.56fed360.js"
+    "static/js/main.1950d964.js"
   ]
 }
